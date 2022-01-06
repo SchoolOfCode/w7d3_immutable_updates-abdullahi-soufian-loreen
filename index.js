@@ -58,7 +58,11 @@ export function toggleTeaStatus(object) {
 //    toggleListItemCompleted([{ task: "Cooking", completed: true }, { task: "Walking", completed: false }], 1)
 // should give back:
 //    [{ task: "Cooking", completed: true }, { task: "Walking", completed: true }]
+
+
 export function toggleListItemCompleted(array, index) {
-    const newArray = [...array, array[index].completed = !array[index].completed ]
-    return newArray
+//     const newArray = [...array, array[index].completed = !array[index].completed ]
+//     return newArray
+
+    return [...array.slice(0, index), {...array[index], completed: !array[index].completed}, ...array.slice(index+1)     ]
 }
